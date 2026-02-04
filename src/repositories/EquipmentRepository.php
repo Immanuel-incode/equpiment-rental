@@ -3,7 +3,7 @@
 class EquipmentRepository {
     private $pdo;
 
-    public fnction __construct ($pdo) {
+    public function __construct ($pdo) {
         $this->pdo = $pdo;
     }
 
