@@ -1,5 +1,6 @@
 <?php
 
+#Coordinates repositories and controls the rentalk workflow
 class RentalService {
     private $equipmentRepo;
     private $rentalRepo;
@@ -9,6 +10,7 @@ class RentalService {
         $this->rentalRepo = $rentalRepo;
     }
 
+#applies rental rules which are availability checks, due dates, creates and updates rental records 
     public function rent($userId, $equipmentId, $qty) {
         if (!$this->equipmentRepo->isAvailable($equipmentId, $qty)) {
             return [
