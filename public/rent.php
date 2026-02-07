@@ -1,6 +1,6 @@
 <?php
 
-#Receives users inputs, calling the rental services and returning responses
+#Receives users inputs, calls the rental services and returning responses
 require '../src/config/db.php';
 require '../src/repositories/EquipmentRepository.php';
 require '../src/repositories/RentalRepository.php';

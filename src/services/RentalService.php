@@ -1,6 +1,6 @@
 <?php
 
-#Coordinates repositories and controls the rentalk workflow
+#Coordinates repositories and controls the rental workflow
 class RentalService {
     private $equipmentRepo;
     private $rentalRepo;

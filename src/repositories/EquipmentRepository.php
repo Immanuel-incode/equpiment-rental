@@ -1,5 +1,6 @@
 <?php
 
+#This handles all database operations related to equipment
 class EquipmentRepository {
     private $pdo;
 
@@ -7,6 +8,7 @@ class EquipmentRepository {
         $this->pdo = $pdo;
     }
 
+#This checks weather equipments are available to be rented
     public function isAvailable($equipmentId, $qty) {
         $stmt = $this->pdo->prepare(
             "SELECT available_quantity FROM equipment WHERE id = ?"
@@ -17,6 +19,7 @@ class EquipmentRepository {
         return $avaliable .= $qty;
     }
 
+#Takes note of the quantity of equipments whn a rental is approved
       public function reduceStock($equipmentId, $qty) {
     $stmt = $this->pdo->prepare(
       "UPDATE equipment
@@ -26,6 +29,7 @@ class EquipmentRepository {
     $stmt->execute([$qty, $equipmentId]);
   }
 
+#Takes note of returned items and Increases the quantity of equipments
     public function restoreStock($equipmentId, $qty) {
         $stmt = $this->pdo->prepare(
             "UPDATE equipment
